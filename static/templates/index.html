@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dungeon Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div>
+        <img src="/static/img/gate.png" alt="Gate" style="width:400px;height:500px;">
+    </div>
+    <h1>Welcome to the Dungeon!!!</h1>
+    <h2>Do you have what it takes to continue???</h2>
+    <div id="main">
+        <h2>Please enter your name:</h2>
+        <form action="/">
+            <input type="text" id="userInput" value="">
+            <input type="Button" id="userButton" value="Submit"
+                onclick="window.location.href='http://127.0.0.1:5000/';">
+        </form>
+    </div>
+
+    <script>
+        //Constants
+        const main = document.getElementById("main");
+        const userButton = document.getElementById("userButton");
+        const userInput = document.getElementById("userInput");
+
+        //Event listeners
+        userButton.addEventListener("click", addUser);
+
+        //Functions
+        function addUser() {
+            if (localStorage.getItem("User") == null) {
+                localStorage.setItem("User", userInput.value);
+            } else {
+                const newValue = itemInput.value + " ";
+                localStorage.setItem("User", newValue);
+            }
+        }
+
+        //Run functions
+        //Welcome back user: 
+        if (localStorage.getItem("User") != null) {
+            main.innerHTML = "<div id='mainBox'>"
+                + "Welcome " + localStorage.getItem("User")
+                + "<br>" + "<br>"
+                + '<button onclick=window.location.href="http://127.0.0.1:5000/hero">Choose Hero</button>'
+                + '<button onclick="localStorage.clear(); location.reload()">Clear user</button>'
+                + "</div>"
+        }
+    </script>
+</body>
+
+</html>

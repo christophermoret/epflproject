@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dungeon</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <h1>The Dungeon</h1>
+    <div id="chooseYourHero" name="chooseYourHero">
+        <h2>Choose your hero:</h2>
+        <input type="image" id="warrior" name="warrior" src="/static/img/link.png" style="width:200px;height:200px;">
+        <input type="image" id="magician" name="magician" src="/static/img/merlin.png"
+            style="width:200px;height:200px;">
+    </div>
+
+    <div id="stats"></div>
+    <div id="startButton"></div>
+
+    <script>
+        //Constants
+        const warriorImg = document.getElementById("warrior");
+        const magicianImg = document.getElementById("magician");
+        const stats = document.getElementById("stats");
+        const startButton = document.getElementById("startButton");
+
+        //Event listeners
+        warriorImg.addEventListener("click", warrior);
+        magicianImg.addEventListener("click", magician);
+        startButton.addEventListener("click", function () {
+            document.location.href = 'http://127.0.0.1:5000/game';
+        });
+
+        //Functions
+        function warrior() {
+            localStorage.setItem("Hero", "Warrior");
+            localStorage.setItem("HP", 100);
+            localStorage.setItem("ATK", 80);
+            location.reload();
+        }
+
+        function magician() {
+            localStorage.setItem("Hero", "Magician");
+            localStorage.setItem("HP", 80);
+            localStorage.setItem("ATK", 90);
+            location.reload();
+        }
+
+        //Run functions
+        //Display stats:
+        if (localStorage.getItem("Hero") != null) {
+            stats.innerHTML = "<h2>Stats: </h2>" + "<h3>" + localStorage.getItem("Hero") + "<h3> HP: " + localStorage.getItem("HP") + "</h3>"
+                + "<h3>" + "ATK: " + localStorage.getItem("ATK") + "</h3>"
+        }
+
+        //Display start button:
+        if (localStorage.getItem("HP") != null) {
+            startButton.innerHTML = '<button onclick=window.location.href="http://127.0.0.1:5000/game">Start Game</button>'
+        }
+    </script>
+</body>
+
+</html>
