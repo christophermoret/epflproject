@@ -47,7 +47,7 @@
         //Welcome back user: 
         if (localStorage.getItem("User") != null) {
             main.innerHTML = "<div id='mainBox'>"
-                + "Welcome " + localStorage.getItem("User")
+                + "Welcome " + localStorage.getItem("User") + "<br>" + "Keep your eyes open"
                 + "<br>" + "<br>"
                 + '<button onclick=window.location.href="http://127.0.0.1:5000/hero">Choose Hero</button>'
                 + '<button onclick="localStorage.clear(); location.reload()">Clear user</button>'

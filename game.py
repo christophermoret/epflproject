@@ -9,7 +9,7 @@ def get_html(page_name):
     return content
 
 # DATA:
-# Create player:
+# Create creatures:
 class creature:
     def __init__(self, name, hp, atk):
         self.name = name
