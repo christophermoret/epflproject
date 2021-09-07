@@ -39,5 +39,9 @@ def chooseHero():
 # Game
 @app.route("/game")
 def game():
-    print(warrior)
+    return get_html("game")
+
+# Fight
+@app.route("/lvl1")
+def fight():
     return get_html("game")

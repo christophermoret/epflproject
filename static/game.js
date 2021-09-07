@@ -3,6 +3,7 @@ const stats = document.getElementById("stats");
 const enemy = document.getElementById("enemy");
 const enemyStats = document.getElementById("enemyStats");
 const actions = document.getElementById("actions");
+const level = localStorage.getItem("Level");
 
 // MODELS:
 let player;
@@ -40,6 +41,27 @@ function level2() {
 }
 
 
+//Load level
+function loadLevel(level) {
+    console.log("LoadLevel runs");
+    console.log(level);
+
+    if (level = 1) {
+        monster = new Monster("Door guardian", 40, 10);
+        enemy.innerHTML = '<h2>Enemy stats:</h2> <img src="/static/img/guardian.png" style="width:200px;height:200px;">'
+        enemyStats.innerHTML = "<h3>" + monster.name + "</h3>"
+            + "<h3> HP: " + monster.HP + "</h3>"
+            + "<h3>" + "ATK: " + monster.ATK + "</h3>";
+    }
+    if (level = 2) {
+        monster = new Monster("Big BOSS", 500, 500);
+        enemy.innerHTML = '<h2>Enemy stats:</h2> <img src="/static/img/elf.png" style="width:200px;height:200px;">'
+        enemyStats.innerHTML = "<h3>" + monster.name + "</h3>"
+            + "<h3> HP: " + monster.HP + "</h3>"
+            + "<h3>" + "ATK: " + monster.ATK + "</h3>";
+    }
+}
+
 //Attack
 function attack() {
     player.HP = player.HP - monster.ATK;
@@ -55,11 +77,10 @@ function attack() {
         document.location.href = 'http://127.0.0.1:5000/hero';
     }
     if (monster.HP <= 0) {
-        level2();
+        level = level + 1;
+        loadLevel();
     }
 }
-
-
 
 //Run game: 
 // Create player:
@@ -75,9 +96,9 @@ if (localStorage.getItem("Hero") == "Warrior") {
         + "<h3>" + "ATK: " + player.ATK + "</h3>"
 }
 
-level1();
+if (localStorage.getItem("Level") == null) {
+    localStorage.setItem("Level", 1);
+}
 
-//Debug
-console.log("Debug:")
-console.log(player)
-console.log(monster)
+loadLevel();
+console.log(monster);
