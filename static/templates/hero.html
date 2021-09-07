@@ -50,7 +50,11 @@
             location.reload();
         }
 
-        //Run functions
+        //Run:
+        //Set level: 
+        if (localStorage.getItem("Level") == null) {
+            localStorage.setItem("Level", 1);
+        }
         //Display stats:
         if (localStorage.getItem("Hero") != null) {
             stats.innerHTML = "<h2>Stats: </h2>" + "<h3>" + localStorage.getItem("Hero") + "<h3> HP: " + localStorage.getItem("HP") + "</h3>"
