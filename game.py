@@ -20,9 +20,6 @@ warrior = creature("Link", 100, 50)
 magician = creature("Merlin", 80, 60)
 monster1 = creature("Guardian of the door", 60, 20)
 
-# Assigne data
-
-
 
 # Routes ----------------------------------
 
@@ -45,3 +42,4 @@ def game():
 @app.route("/lvl1")
 def fight():
     return get_html("game")
+

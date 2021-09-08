@@ -20,7 +20,7 @@ No, used the methods learned in class but did create my own functions i/o using 
 - [x] It uses the Flask web framework.
 - [x] It uses at least one module from the Python Standard Library other than the random module.
   Please provide the name of the module you are using in your app.
-  - Module name: def __init__
+  - Module name: Routes + replace_html + def __init__
 - [x] It contains at least one class written by you that has both properties and methods.
   This includes instantiating the class and using the methods in your app.
   Please provide below the file name and the line number(s) of at least one example of a class definition in your code.
@@ -33,9 +33,9 @@ No, used the methods learned in class but did create my own functions i/o using 
   one example of a conditional statement in your code. 
   - File name: game.js
   - Line number(s): 21 to 33
-- [!!!!!] It contains loops. Please provide below the file name and the line number(s) of at least
+- [] It contains loops. Please provide below the file name and the line number(s) of at least
   one example of a loop in your code.
-  - File name: game.js
+  - File name: 
   - Line number(s): 
 - [x] It lets the user enter a value in a text box at some point.
   This value is received and processed by your back end Python code.

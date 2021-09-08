@@ -42,6 +42,7 @@ function loadLevel() {
     }
 
     if (level == 3) {
+        alert("The Goblin falls with a scream revealing a pot of gold behind him. Without time to even touch a single coin, a trap door opens and sends you flying down to the feet of the mighty Dark Elf");
         monster = new Monster("Big BOSS", 500, 500);
         enemy.innerHTML = '<h2>Enemy stats:</h2> <img src="/static/img/elf.png" style="width:200px;height:200px;">'
         enemyStats.innerHTML = "<h3>" + monster.name + "</h3>"
@@ -66,9 +67,7 @@ function attack() {
         document.location.href = 'http://127.0.0.1:5000/hero';
     }
     if (monster.HP <= 0) {
-        console.log("Ding Dong the witch is dead");
         localStorage.setItem("Level", ++level);
-        console.log(level);
         loadLevel();
     }
 }
